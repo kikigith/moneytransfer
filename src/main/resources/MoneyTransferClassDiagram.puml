@@ -1,0 +1,48 @@
+@startuml
+'https://plantuml.com/class-diagram
+class Transfer {
+  Integer id
+  Date dateTransfer
+  Double amount
+}
+
+class User {
+  String id
+  String firstname
+  String lastname
+  String email
+  String login
+  String password
+  Double balance
+}
+
+class Transaction{
+  Integer id
+  String desription
+  Date date
+  Double amount
+}
+'class TransactionType{
+ ' String code
+  'String description
+'}
+'class example
+'class example2
+
+User "1..*" --- "1..1" Transfer
+User "1..*" --- "1..1" Connection
+User "1..*" --- "1..1" Connection
+
+User "0..*" --- "1..1" Transaction
+User "0..*" --- "1..1" Transaction
+'BankAccount "0..*" --- "1..1" Transaction
+'BankAccount "0..*" --- "1..1" Transaction
+'Transaction "1..1" -- "0..1" TransactionType
+'Example "1" -right- "*" Example2 : description
+'class BankAccount1
+'class BankAccount2
+'class Transaction1
+'BankAccount1 "0..*" ---"1..1"Transaction1
+'Transaction1 "1..1" ---"0..*"BankAccount2
+
+@enduml
